@@ -6,8 +6,8 @@ public class BeerHouse {
     private int stock;
 
     public BeerHouse(){
-        this.capacity = 10;
-        this.stock = 0;
+        this.capacity = 20;
+        this.stock = 10;
     }
 
     public synchronized void incrementarStock(){
@@ -34,11 +34,11 @@ public class BeerHouse {
         notifyAll();
     }
 
-    public synchronized int getCapacity() {
+    public int getCapacity() {
         return capacity;
     }
 
-    public synchronized int getStock() {
+    public int getStock() {
         return stock;
     }
 

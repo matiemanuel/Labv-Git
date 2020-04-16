@@ -20,7 +20,7 @@ public class BeerProducter extends Thread{
 
     @Override
     public void run() {
-        while(true){
+        while(beerhouse.getStock()!=0){
             producir();
         }
     }
