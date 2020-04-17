@@ -1,27 +1,30 @@
 package com.UTN.classes;
 
-public class BeerProducter extends Thread{
+//Clase que extiende de Thread
+public class BeerProducter extends Thread {
 
     private BeerHouse beerhouse;
     private String name;
 
-    public BeerProducter(String name, BeerHouse beerhouse){
+    public BeerProducter(String name, BeerHouse beerhouse) {
         this.name = name;
         this.beerhouse = beerhouse;
     }
 
-    public void producir(){
+    public void producir() {
         beerhouse.incrementarStock();
         System.out.println(name + " produjo una cerveza. Stock total: " + beerhouse.getStock());
         try {
-            sleep((int)(Math.random() * 1000));
-        } catch (InterruptedException e) { }
+            sleep((int) (Math.random() * 1000));
+        } catch (InterruptedException e) {
+        }
     }
 
     @Override
     public void run() {
-        while(beerhouse.getStock()!=0){
+        while (beerhouse.getStock() != 0) {
             producir();
         }
+        this.interrupt();
     }
 }

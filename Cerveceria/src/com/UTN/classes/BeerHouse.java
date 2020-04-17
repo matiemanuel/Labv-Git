@@ -5,13 +5,13 @@ public class BeerHouse {
     private int capacity;
     private int stock;
 
-    public BeerHouse(){
-        this.capacity = 20;
+    public BeerHouse() {
+        this.capacity = 100;
         this.stock = 10;
     }
 
-    public synchronized void incrementarStock(){
-        while(isFull()){
+    public synchronized void incrementarStock() {
+        while (isFull()) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -22,8 +22,8 @@ public class BeerHouse {
         notifyAll();
     }
 
-    public synchronized void decrementarStock(){
-        while(getStock()==0){
+    public synchronized void decrementarStock() {
+        while (getStock() == 0) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -42,8 +42,8 @@ public class BeerHouse {
         return stock;
     }
 
-    public boolean isFull(){
-        if (getStock()<getCapacity())
+    public boolean isFull() {
+        if (getStock() < getCapacity())
             return false;
         else
             return true;

@@ -9,13 +9,13 @@ public class Main {
     public static void main(String[] args) {
         BeerHouse beerHouse = new BeerHouse();
         BeerProducter productor1 = new BeerProducter("Matias", beerHouse);
-        BeerProducter productor2 = new BeerProducter("Gonzalo", beerHouse);
-        BeerConsumer consumer1 = new BeerConsumer("Cintia", beerHouse);
-        //BeerConsumer consumer2 = new BeerConsumer("Nicolas", beerHouse);
+        //BeerProducter productor2 = new BeerProducter("Gonzalo", beerHouse);
+        Thread consumer1 = new Thread(new BeerConsumer("Cintia", beerHouse));
+        Thread consumer2 = new Thread(new BeerConsumer("Nicolas", beerHouse));
         productor1.start();
-        productor2.start();
+        //productor2.start();
         consumer1.start();
-        //consumer2.start();
+        consumer2.start();
 
     }
 }
