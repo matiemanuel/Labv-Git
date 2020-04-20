@@ -1,4 +1,4 @@
-# Labv-Git
+# Labv-Git - Cerveceria
 
 ### Respuestas:
 ##### - Se necesitan mas hilos de consumidores que de productores para que el stock llegue a 0. En el codigo tenemos 1 productor (Matias) y 2 consumidores (Cintia y Nicolas)
